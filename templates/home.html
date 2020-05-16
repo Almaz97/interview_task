@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+          {% block content %}
+               <div class="container-fluid">
+               <div class="col-auto">
+
+            <h2>Covid-19. Condition of all countries for last 5 weeks</h2>
+           <table class="center table table-striped table-bordered" style="width: 90%" id="mydatatable">
+              <col>
+              <colgroup span="3"></colgroup>
+              <colgroup span="3"></colgroup>
+              <tr>
+                <td rowspan="2"></td>
+                  {% for i in weeks %}
+                      <th colspan="2" scope="colgroup">Week {{ i.0 }} <br> {{ i.1 }}</th>
+                  {% endfor %}
+
+              </tr>
+              <tr>
+                  {% for i in weeks %}
+                    <th scope="col">Infected</th>
+                    <th scope="col">Died</th>
+                  {% endfor %}
+
+              </tr>
+
+           {% for data in dataset %}
+              <tr>
+                <th scope="row">{{ data.country.id }} {{ data.country }}</th>
+                  {% if data.total_infected.0 >= 0 and data.total_infected.0 <= 250 %}
+                      <td style="background-color: limegreen">{{ data.total_infected.0 }}</td>
+                  {% elif data.total_infected.0 > 250 and data.total_infected.0 <= 500 %}
+                      <td style="background-color: dodgerblue">{{ data.total_infected.0 }}</td>
+                  {% elif data.total_infected.0 > 500 and data.total_infected.0 <= 750 %}
+                      <td style="background-color: #ff9900">{{ data.total_infected.0 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_infected.0 }}</td>
+                  {% endif %}
+
+                  {% if data.total_died.0 >= 0 and data.total_died.0 <= 25 %}
+                      <td style="background-color: limegreen">{{ data.total_died.0 }}</td>
+                  {% elif data.total_died.0 > 25 and data.total_died.0 <= 50 %}
+                      <td style="background-color: dodgerblue">{{ data.total_died.0 }}</td>
+                  {% elif data.total_died.0 > 50 and data.total_died.0 <= 75 %}
+                      <td style="background-color: #ff9900">{{ data.total_died.0 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_died.0 }}</td>
+                  {% endif %}
+
+                  {% if data.total_infected.1 >= 0 and data.total_infected.1 <= 250 %}
+                      <td style="background-color: limegreen">{{ data.total_infected.1 }}</td>
+                  {% elif data.total_infected.1 > 250 and data.total_infected.1 <= 500 %}
+                      <td style="background-color: dodgerblue">{{ data.total_infected.1 }}</td>
+                  {% elif data.total_infected.1 > 500 and data.total_infected.1 <= 750 %}
+                      <td style="background-color: #ff9900">{{ data.total_infected.1 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_infected.1 }}</td>
+                  {% endif %}
+
+                  {% if data.total_died.1 >= 0 and data.total_died.0 <= 25 %}
+                      <td style="background-color: limegreen">{{ data.total_died.1 }}</td>
+                  {% elif data.total_died.1 > 25 and data.total_died.1 <= 50 %}
+                      <td style="background-color: dodgerblue">{{ data.total_died.1 }}</td>
+                  {% elif data.total_died.1 > 50 and data.total_died.1 <= 75 %}
+                      <td style="background-color: #ff9900">{{ data.total_died.1 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_died.1 }}</td>
+                  {% endif %}
+
+                  {% if data.total_infected.2 >= 0 and data.total_infected.2 <= 250 %}
+                      <td style="background-color: limegreen">{{ data.total_infected.2 }}</td>
+                  {% elif data.total_infected.2 > 250 and data.total_infected.2 <= 500 %}
+                      <td style="background-color: dodgerblue">{{ data.total_infected.2 }}</td>
+                  {% elif data.total_infected.2 > 500 and data.total_infected.2 <= 750 %}
+                      <td style="background-color: #ff9900">{{ data.total_infected.2 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_infected.2 }}</td>
+                  {% endif %}
+
+                  {% if data.total_died.2 >= 0 and data.total_died.2 <= 25 %}
+                      <td style="background-color: limegreen">{{ data.total_died.2 }}</td>
+                  {% elif data.total_died.2 > 25 and data.total_died.2 <= 50 %}
+                      <td style="background-color: dodgerblue">{{ data.total_died.2 }}</td>
+                  {% elif data.total_died.2 > 50 and data.total_died.2 <= 75 %}
+                      <td style="background-color: #ff9900">{{ data.total_died.2 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_died.2 }}</td>
+                  {% endif %}
+
+                  {% if data.total_infected.3 >= 0 and data.total_infected.3 <= 250 %}
+                      <td style="background-color: limegreen">{{ data.total_infected.3 }}</td>
+                  {% elif data.total_infected.3 > 250 and data.total_infected.3 <= 500 %}
+                      <td style="background-color: dodgerblue">{{ data.total_infected.3 }}</td>
+                  {% elif data.total_infected.3 > 500 and data.total_infected.3 <= 750 %}
+                      <td style="background-color: #ff9900">{{ data.total_infected.3 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_infected.3 }}</td>
+                  {% endif %}
+
+                  {% if data.total_died.3 >= 0 and data.total_died.3 <= 25 %}
+                      <td style="background-color: limegreen">{{ data.total_died.3 }}</td>
+                  {% elif data.total_died.3 > 25 and data.total_died.3 <= 50 %}
+                      <td style="background-color: dodgerblue">{{ data.total_died.3 }}</td>
+                  {% elif data.total_died.3 > 50 and data.total_died.3 <= 75 %}
+                      <td style="background-color: #ff9900">{{ data.total_died.3 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_died.3 }}</td>
+                  {% endif %}
+
+                  {% if data.total_infected.4 >= 0 and data.total_infected.4 <= 250 %}
+                      <td style="background-color: limegreen">{{ data.total_infected.4 }}</td>
+                  {% elif data.total_infected.4 > 250 and data.total_infected.4 <= 500 %}
+                      <td style="background-color: dodgerblue">{{ data.total_infected.4 }}</td>
+                  {% elif data.total_infected.4 > 500 and data.total_infected.4 <= 750 %}
+                      <td style="background-color: #ff9900">{{ data.total_infected.4 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_infected.4 }}</td>
+                  {% endif %}
+
+                  {% if data.total_died.4 >= 0 and data.total_died.4 <= 25 %}
+                      <td style="background-color: limegreen">{{ data.total_died.4 }}</td>
+                  {% elif data.total_died.4 > 25 and data.total_died.4 <= 50 %}
+                      <td style="background-color: dodgerblue">{{ data.total_died.4 }}</td>
+                  {% elif data.total_died.4 > 50 and data.total_died.4 <= 75 %}
+                      <td style="background-color: #ff9900">{{ data.total_died.4 }}</td>
+                  {% else %}
+                      <td style="background-color: crimson">{{ data.total_died.4 }}</td>
+                  {% endif %}
+
+              </tr>
+           {% endfor %}
+
+            </table>
+               </div>
+        </div>
+
+          {% endblock content %}
+
